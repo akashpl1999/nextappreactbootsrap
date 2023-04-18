@@ -12,8 +12,6 @@ export default function Register() {
             <Container >
 
                 <Form>
-
-
                     <Form.Group className="mb-3" controlId="formControls">
 
                         <Form.Label>name<span style={{ color: "red" }}>*</span></Form.Label>
@@ -25,12 +23,8 @@ export default function Register() {
 
 
                     <Form.Group className="mb-3" controlId="formControls">
-
-
                         <Form.Label>Email<span style={{ color: "red" }}>*</span></Form.Label>
                         <Form.Control type='email' placeholder="name@gmail.com" />
-
-
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formControls">
