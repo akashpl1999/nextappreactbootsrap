@@ -1,0 +1,18 @@
+/* .con{
+    background-color: aqua;
+    display: inline-flex;
+    padding: 10px;
+    padding-left: 20px;
+} */
+
+.container {
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  

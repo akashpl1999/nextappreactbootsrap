@@ -1,0 +1,348 @@
+
+            {/* <Carousel interval={null} wrap={false}>
+                <Carousel.Item>
+                    <div className="d-flex justify-content-between">
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+
+
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div className="d-flex justify-content-between">
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+                        <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                            <Card.Img src="/coder.jpg" alt="Card image" />
+                            <Card.ImgOverlay>
+                                <Card.Title>Card title</Card.Title>
+                                <Card.Text>
+                                    This is a wider card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </Card.Text>
+                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                            </Card.ImgOverlay>
+                        </Card>
+
+
+                    </div>
+                </Carousel.Item>
+
+            </Carousel>
+ */}
+
+            {/* ///by using the react-sliker <Slider {...settings} style={{ marginBottom: '10px' }}>
+
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+                <div>
+                    <Card className=" m-1 bg-dark text-white" style={{ minWidth: '300px', borderRadius: "10px", marginRight: '10px' }}>
+                        <Card.Img src="/coder.jpg" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title>Card title</Card.Title>
+                            <Card.Text>
+                                This is a wider card with supporting text below as a natural lead-in
+                                to additional content. This content is a little bit longer.
+                            </Card.Text>
+                            <Card.Text>Last updated 3 mins ago</Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+
+
+                </div>
+
+
+
+
+
+
+            </Slider>
+
+
+            <Carousel interval={null} indicators={false} wrap={false} slide={true}>
+                {items}
+            </Carousel>
+ */}
+
+
+            {/*          
+   <Carousel interval={2000}>
+      <Carousel.Item>
+        <Card>
+          <Card.Body>
+            <Card.Title>Card 1</Card.Title>
+            <Card.Text>
+              This is the first card.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Carousel.Item>
+      <Carousel.Item>
+        <Card>
+          <Card.Body>
+            <Card.Title>Card 2</Card.Title>
+            <Card.Text>
+              This is the second card.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Carousel.Item>
+      <Carousel.Item>
+        <Card>
+          <Card.Body>
+            <Card.Title>Card 3</Card.Title>
+            <Card.Text>
+              This is the third card.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Carousel.Item>
+    </Carousel> */}
+
+
+
+
+
+
+
+
+

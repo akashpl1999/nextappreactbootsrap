@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    overflow-x: auto;
+     }
+  
+  .container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  
