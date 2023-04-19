@@ -18,7 +18,7 @@ export default function Footer() {
     return (
 
 
-        <footer className="bg-dark text-white py-2" style={{ marginTop: footerHeight }}>
+        <footer className="bg-dark text-white py-2  w-100" style={{ marginTop: "100px" }}>
 
         <Container className='text-start' >
      
