@@ -27,12 +27,12 @@ const Navbar1 = () => {
 
           <Navbar.Brand className='fw-bolder fs-5'  >
 
-              <Button href='Comp/Main' style={{backgroundColor:'transparent', border:"none"}}>
-              
+            <Button href='Comp/Main' style={{ backgroundColor: 'transparent', border: "none" }}>
+
               Logo
 
-              </Button>
-            
+            </Button>
+
 
           </Navbar.Brand>
 
@@ -53,19 +53,19 @@ const Navbar1 = () => {
 
                 </Button>
 
-                <Modal  show={show} onHide={handleclose} backdrop="static" keyboard={false}>
+                <Modal show={show} onHide={handleclose} backdrop="static" keyboard={false}>
 
-                 
+
                   <Modal.Header >
-                    
+
                     <Modal.Title>Modal heading</Modal.Title>
-                  
+
                   </Modal.Header>
 
 
                   <Modal.Body className='d-flex '>
 
-                    <Button  className='m-2' >
+                    <Button className='m-2' >
 
                       Select the location
 
@@ -77,9 +77,9 @@ const Navbar1 = () => {
                   </Modal.Body>
 
                   <Modal.Footer>
-                    
+
                     <Button variant="secondary" onClick={handleclose}>
-                    
+
                       Close
 
                     </Button>
@@ -114,32 +114,56 @@ const Navbar1 = () => {
 
               </Nav.Link>
 
-          
+
               <NavDropdown title="Register/Login" id="basic-nav-dropdown">
-              
-              
-              <NavDropdown.Item  >
-                
-                 <Link href="Register">Register</Link>
-                 
-               </NavDropdown.Item>
 
 
-              <NavDropdown.Item >
+                <NavDropdown.Item  >
 
-                <Link href='Login'>
-                
-                  Login
-             
-                </Link>
+                  <Link href="Register">Register</Link>
 
-               </NavDropdown.Item>
+                </NavDropdown.Item>
+
+
+                <NavDropdown.Item >
+
+                  <Link href='Login'>
+
+                    Login
+
+                  </Link>
+
+                </NavDropdown.Item>
+
+
+                <NavDropdown.Item >
+
+                  <Link href='Profile'>
+
+                    Profile
+
+                  </Link>
+
+                </NavDropdown.Item>
+
+
+                <NavDropdown.Item >
+
+                  <Link href='Bootp1'>
+
+                    profile2
+
+                  </Link>
+
+                </NavDropdown.Item>
+
+
 
 
               </NavDropdown>
 
 
-          
+
             </Nav>
 
             <div className="d-flex" >

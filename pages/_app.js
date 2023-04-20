@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Comp/Header/Navbar';
 import Footer from './Comp/Footer/Footer';
 
-
+import Foot1 from './Comp/Foot1'
 
 
 function MyApp({ Component, pageProps }) {
@@ -16,10 +16,9 @@ function MyApp({ Component, pageProps }) {
     <>
 
         <Navbar/>
-        <Component {...pageProps} />
-        <Footer/>
-
-    
+        <Component   {...pageProps} />
+     
+          <Foot1/>
     </>
 
   ) 

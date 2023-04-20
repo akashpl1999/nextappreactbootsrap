@@ -13,13 +13,16 @@ export default function Login() {
     return (
  
  
- 
-        <div className='d-flex  bg-dark text-light'  style={{ maxWidth: "500px", margin: 'auto', marginTop: '10px', marginBottom: '10px', padding: '20px', borderRadius: "10px", }} >
- 
-             <Container>
+          <div style={{minHeight:'500px'}}>
 
+      
+        <div>
+ 
+             <Container className='d-flex  bg-dark text-light justify-content-center align-items-center '   style={{ maxWidth: "500px",  padding: '20px', marginTop:'30px', borderRadius: "10px", height:"400px"  }} >
 
-                <Form>
+                 
+                <Form >
+
                     <Form.Group as={Row} className='mb-3' controlId='formplaintextEmail'>
                         
                         <Form.Label column sm="3">Email</Form.Label>
@@ -60,6 +63,8 @@ export default function Login() {
 
 
         </div>
+        </div>
+ 
 
 
   )
