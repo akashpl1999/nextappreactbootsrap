@@ -9,16 +9,16 @@ export default function Footer() {
 
   const [footerHeight, setFooterHeight] = useState(0);
 
-  useEffect(() => {
-    setFooterHeight(document.querySelector('footer').offsetHeight);
-  }, []);
+  // useEffect(() => {
+  //   setFooterHeight(document.querySelector('footer').offsetHeight);
+  // }, []);
 
 
 
     return (
 
 
-        <footer className="bg-dark text-white py-2  w-100" style={{ marginTop: "100px" }}>
+        <footer className="bg-dark text-white py-2  w-100" style={{   zIndex:1,    marginTop:"60%"     }}>
 
         <Container className='text-start' >
      

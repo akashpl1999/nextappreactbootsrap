@@ -1,0 +1,171 @@
+[
+    {
+        "id": 1,
+        "name": "Lays Potato Chips",
+        "price": "₹10",
+        "category": "Snacks",
+        "description": "Classic potato chips loved by all",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=120,h=120/app/images/products/full_screen/pro_518850.jpg?ts=1679906140",
+        "quantity": "50g"
+    },
+    {
+        "id": 2,
+        "name": "Kurkure Masala Munch",
+        "price": "₹5",
+        "category": "Snacks",
+        "description": "Crunchy and spicy snack made from rice and corn flour",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/140943a.jpg",
+        "quantity": "20g"
+    },
+    {
+        "id": 3,
+        "name": "Bingo Mad Angles",
+        "price": "₹15",
+        "category": "Snacks",
+        "description": "Triangle-shaped potato crisps with a tangy taste",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/501572a.jpg?ts=1680346648",
+        "quantity": "80g"
+    },
+    {
+        "id": 4,
+        "name": "Haldiram's Bhujia",
+        "price": "₹20",
+        "category": "Snacks",
+        "description": "Crispy and spicy gram flour noodles",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/full_screen/pro_482048.jpg?ts=1653898920",
+        "quantity": "100g"
+    },
+    {
+        "id": 5,
+        "name": "Cadbury Fuse",
+        "price": "₹20",
+        "category": "Snacks",
+        "description": "Chocolate bar with a crunchy and chewy texture",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/477141a.jpg?ts=1682332631",
+        "quantity": "45g"
+    },
+    {
+        "id": 6,
+        "name": "Britannia Good Day Biscuits",
+        "price": "₹20",
+        "category": "Snacks",
+        "description": "Butter cookies with a rich and creamy flavor",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/86864a.jpg?ts=1658907723",
+        "quantity": "75g"
+    },
+
+
+    {
+        "id": 1,
+        "name": "Coca-Cola",
+        "price": "₹20",
+        "category": "Drinks",
+        "description": "Classic cola drink loved by all",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/283a.jpg?ts=1657699524",
+        "quantity": "300ml"
+    },
+    {
+        "id": 2,
+        "name": "Pepsi",
+        "price": "₹18",
+        "category": "Drinks",
+        "description": "Another classic cola drink loved by all",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/363311a.jpg?ts=1672384718",
+        "quantity": "300ml"
+    },
+    {
+        "id": 3,
+        "name": "Red Bull Energy Drink",
+        "price": "₹100",
+        "category": "Drinks",
+        "description": "Energy drink for those who need a boost",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/385a.jpg?ts=1667218899",
+        "quantity": "250ml"
+    },
+    {
+        "id": 4,
+        "name": "Sprite",
+        "price": "₹15",
+        "category": "Drinks",
+        "description": "Lemon-lime flavored soda",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/312a.jpg?ts=1678183838",
+        "quantity": "300ml"
+    },
+    {
+        "id": 5,
+        "name": "Mountain Dew",
+        "price": "₹22",
+        "category": "Drinks",
+        "description": "Citrus flavored soda",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/full_screen/pro_375378.jpg?ts=1662555218",
+        "quantity": "300ml"
+    },
+    {
+        "id": 6,
+        "name": "Fanta",
+        "price": "₹17",
+        "category": "Drinks",
+        "description": "Orange flavored soda",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/full_screen/pro_396489.jpg?ts=1656491804",
+        "quantity": "300ml"
+    },
+    {
+        "id": 1,
+        "name": "Bananas",
+        "price": "₹30",
+        "category": "Fruits",
+        "description": "A sweet and nutritious fruit",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/424416a.jpg",
+        "quantity": "1kg"
+      },
+      {
+        "id": 2,
+        "name": "Apples",
+        "price": "₹50",
+        "category": "Fruits",
+        "description": "A crunchy and juicy fruit",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/424390a.jpg?ts=1665130730",
+        "quantity": "1kg"
+      },
+      {
+        "id": 1,
+        "name": "Carrots",
+        "price": "₹30",
+        "category": "Vegetables",
+        "description": "Fresh and crunchy carrots",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/23383a.jpg?ts=1636540615",
+        "quantity": "500g"
+      },
+      {
+        "id": 2,
+        "name": "Tomatoes",
+        "price": "₹20",
+        "category": "Vegetables",
+        "description": "Juicy and ripe tomatoes",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/445675a.jpg?ts=1648026977",
+        "quantity": "1kg"
+      },
+      {
+        "id": 3,
+        "name": "Maybelline Mascara",
+        "price": "₹250",
+        "category": "Makeup",
+        "description": "Voluminous mascara for bold lashes",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/11425a.jpg?ts=1675428419",
+        "quantity": "10ml"
+      },
+      {
+        "id": 4,
+        "name": "Himalaya Pet Shampoo",
+        "price": "₹150",
+        "category": "PetCare",
+        "description": "Gentle shampoo for your furry friend",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/481204a.jpg?ts=1659700284",
+        "quantity": "200ml"
+      }
+  
+    
+]
+
+
+

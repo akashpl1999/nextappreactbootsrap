@@ -3,25 +3,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Comp/Header/Navbar';
 import Footer from './Comp/Footer/Footer';
 
-import Foot1 from './Comp/Foot1'
-
+//import Foot1 from './Comp/Foot1'
+import { Provider } from 'react-redux';
+import store from '../Redux/Store';
 
 function MyApp({ Component, pageProps }) {
 
 
 
-  return(
+  return (
 
 
     <>
 
-        <Navbar/>
+      <Provider store={store}>
+      
+        <Navbar />
         <Component   {...pageProps} />
-     
-          <Foot1/>
+        <Footer />
+
+      </Provider>
+
     </>
 
-  ) 
+  )
 }
 
 export default MyApp

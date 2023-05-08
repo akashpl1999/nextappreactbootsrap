@@ -16,7 +16,7 @@ function Foot1() {
 
 
 
-            <Container fluid  className='mt-5'>
+            <Container fluid className='mt-5'>
 
                 <Container fluid className='d-flex justify-content-between mb-2 py-2 bg-dark text-light' >
 
@@ -42,7 +42,7 @@ function Foot1() {
 
 
 
-                <Container  fluid style={{backgroundColor:'lightgray'}}>
+                <Container fluid style={{ backgroundColor: 'lightgray' }}>
 
 
                     <Row>
@@ -50,7 +50,7 @@ function Foot1() {
 
                         <Col className='text-center' md={3} lg={3} xs={12} mb-2 mx-auto>
 
-                         
+
                             <h2 className='text-uppercase fw-bold'>Company name</h2>
                             <hr className='d-inline-block mb-2 mx-auto' style={{ width: '60px', height: '3px', color: 'red', }} />
 
@@ -72,14 +72,14 @@ function Foot1() {
                             <p>
                                 <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
                             </p>
-                            <p> <p>
+                            <p>
                                 <a href='jdnjnd' className='text-dark' >MDBootstrap</a>
                             </p>
-                                <p>
-                                    <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
+                            <p>
+                                <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
 
-                                </p>
-
+                            </p>
+                            <p>
                                 <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
                             </p>
 
@@ -87,7 +87,7 @@ function Foot1() {
 
                         </Col>
 
-                        <Col className='text-center'  md={3} lg={3} xs={12} mb-2 mx-auto>
+                        <Col className='text-center' md={3} lg={3} xs={12} mb-2 mx-auto>
 
                             <h2 className='text-uppercase fw-bold'>Company name</h2>
 
@@ -111,7 +111,7 @@ function Foot1() {
 
                         </Col>
 
-                        <Col className='text-center'  md={3} lg={3} xs={12} mb-2 mx-auto>
+                        <Col className='text-center' md={3} lg={3} xs={12} mb-2 mx-auto>
 
                             <h2 className='text-uppercase fw-bold'>Company name</h2>
 
@@ -120,14 +120,18 @@ function Foot1() {
                             <p>
                                 <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
                             </p>
-                            <p> <p>
+                     
+                            <p>
                                 <a href='jdnjnd' className='text-dark' >MDBootstrap</a>
                             </p>
-                                <p>
-                                    <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
+                        
+                            <p>
+                                <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
 
-                                </p>
-
+                            </p>
+                        
+                        
+                            <p>
                                 <a href='jdnjnd' className='text-dark'>MDBootstrap</a>
                             </p>
 
@@ -161,19 +165,6 @@ function Foot1() {
 
 
             </Container>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
 
