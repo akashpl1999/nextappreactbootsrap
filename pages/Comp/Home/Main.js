@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Container, Row, Carousel } from 'react-bootstrap'
+import { Button, Container, Row, Carousel, ButtonGroup } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -17,27 +17,27 @@ import { useRouter } from 'next/router';
 
 function Main() {
 
-    const getCartData = () => {
+    //     const getCartData = () => {
 
-    if (typeof window !== 'undefined') {
-        const cartData = localStorage.getItem('cartData');
-       
-         if (cartData) {
-          return JSON.parse(cartData);
-        }
-      }
+    //     if (typeof window !== 'undefined') {
+    //         const cartData = localStorage.getItem('cartData');
 
-      return [];
-} 
+    //          if (cartData) {
+    //           return JSON.parse(cartData);
+    //         }
+    //       }
+
+    //       return [];
+    // } 
 
 
 
 
     const [cartdata, setcartdata] = useState([])
+    const [cart, setcart] = useState([])
 
     const router = useRouter()
 
-    const dispatch = useDispatch()
     const rdata = useSelector((data) => data.cart.cartitems)
     console.log(rdata)
 
@@ -71,78 +71,32 @@ function Main() {
     };
 
     const handlecart = (data) => {
-       
+
         console.log(data)
         // dispatch(addtocart(data))
         const userid = JSON.parse(localStorage.getItem('userdata'))
-        const cdata = { userid, cartitem:data}
+        const cdata = { userid, cartitem: data }
         axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
             .then(res => {
                 console.log(res.data)
             })
 
 
-        }
-    
-         
+    }
 
 
-
-
-
-    const handlefilter=(data)=>{
+    const handlefilter = (data) => {
 
         console.log(data)
 
         // dispatch(addtocart(data))
 
-
         const userid = JSON.parse(localStorage.getItem('userdata'))
-        const cdata = { userid, cartitem:data}
+        const cdata = { userid, cartitem: data }
         axios.post('http://localhost:3000/api/Cart/cartdelete', cdata)
             .then(res => {
                 console.log(res.data)
             })
-
-
-
-      
-        //  const filteritem = cartdata.find((dt)=>dt._id===data._id && dt.count > 1)
-       
-       
-        //  if(filteritem){
-          
-        //     const update=cartdata.map(dt=>dt._id===data._id   ? {...dt, count:  dt.count-1 }: dt )
-        //     setcartdata(update)
-        //     localStorage.setItem('cart', JSON.stringify(update))   
-        //     const userid = JSON.parse(localStorage.getItem('userdata'))
-        //     const cdata = { userid, cart: cartdata }
-        //     axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
-        //         .then(res => {
-        //             console.log(res.data)
-        //         })
-    
-                     
-
-        //  }else{
-
-        //      const update= cartdata.filter((dt)=>dt._id !==data._id)
-        //      setcartdata(update)
-        //      localStorage.setItem('cart', JSON.stringify(update))  
-        //      const userid = JSON.parse(localStorage.getItem('userdata'))
-        //      const cdata = { userid, cart: cartdata }
-        //      axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
-        //          .then(res => {
-        //              console.log(res.data)
-        //          })
-      
-                      
-
-        //  }
-
-      
-
-
 
     }
 
@@ -156,16 +110,12 @@ function Main() {
 
     const [item, setitem] = useState()
 
- 
+
     const handleClick = (itemid) => {
 
         router.push(`/Comp/Category/${itemid}`)
 
     }
-
-
-
-    
 
 
 
@@ -179,7 +129,37 @@ function Main() {
         console.log(item)
 
 
+        handlecart()
+
+
     }, [])
+
+
+
+    useEffect(() => {
+
+        let userid = JSON.parse(localStorage.getItem('userdata'))
+
+        console.log({ userid })
+
+        axios.post('http://localhost:3000/api/Cart/cartget', { userid })
+
+            .then(res => {
+
+                console.log(res.data.result)
+
+
+                setcart(res.data.result.cart)
+
+            })
+
+    }, [cart])
+
+
+
+    console.log(cart)
+
+
 
 
 
@@ -191,7 +171,7 @@ function Main() {
         <div style={{ "overflow-x": 'hidden' }}>
 
             <div className='py-3 mx-2 my-4  py-4 px-5 text-light w-89' style={{ backgroundColor: "green", borderRadius: "10px" }}>
-                  <h1>Shop Your Favourite Products On Online</h1>
+                <h1>Shop Your Favourite Products On Online</h1>
                 <Button className='bg-light text-dark m-4 '>Shop</Button>
             </div>
 
@@ -437,11 +417,6 @@ function Main() {
                             return (
 
                                 <>
-
-
-
-
-
                                     <Card className='position-relative' style={{ minWidth: "200px", margin: "10px" }}>
 
                                         <Link href={`../Home/${pid}`}>
@@ -460,9 +435,7 @@ function Main() {
 
                                                 <Card.Subtitle>{elm.description}</Card.Subtitle>
 
-
-
-                                                <Card.Text className="font-weight-bold mt-2">
+                                                 <Card.Text className="font-weight-bold mt-2">
 
                                                     {elm.quantity}
 
@@ -479,17 +452,41 @@ function Main() {
 
                                                 <div className="d-flex justify-content-evenly align-items-center">
 
+                                              
                                                     <Card.Text className="font-weight-bold">{elm.price}</Card.Text>
 
-                                                    <Button onClick={() => { handlecart(elm) }} variant="outline-danger">
-                                                        ADD
-                                                    </Button>
 
-                                                    <Button onClick={()=>{handlefilter(elm)}}  variant="outline-danger">
-                                                        remove
-                                                    </Button>
+                                                     {
+                                                        cart.map(item => item._id).includes(elm._id) ?
+
+                                                        (       
+                                        
+                                                      <ButtonGroup aria-label="Basic example" >
+
+                                                        <Button variant="secondary" onClick={() => { handlefilter(elm) }} style={{ width: '50px' }}>-</Button>
+
+                                                            {
+                                                                cart.map((dt)=> dt._id === elm._id &&<Button variant="secondary"> {dt.count} </Button>
+                                                                )
+                                                            }
+                                                      
+                                                        <Button variant="secondary" onClick={() => { handlecart(elm) }} style={{ width: '50px' }}>+</Button>
+                                                  
+                                                      </ButtonGroup> 
+                                                    
+                                                    
+                                                     ):(
+
+                                                        
+                                                        <Button variant="danger" onClick={() => { handlecart(elm) }}>add</Button>
 
 
+                                                     )
+
+                                                     }
+                                                    
+                                                             
+                                                 
                                                 </div>
 
                                             </div>
@@ -578,7 +575,7 @@ function Main() {
                             <Card.Text >
                                 200g
                             </Card.Text>
-                       
+
                             <div className='d-flex justify-content-between'>
                                 <Card.Text >
                                     ₹189

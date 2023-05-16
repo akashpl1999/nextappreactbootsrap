@@ -143,6 +143,7 @@ const Profile = () => {
 
       const formData = new FormData();
       formData.append('email', loginid);
+      formData.append('name', values.name);
       formData.append('phone', values.phone);
       formData.append('add1', values.add1);
       formData.append('add2', values.add2);
@@ -363,9 +364,9 @@ const Profile = () => {
 
               <Form.Group size="sm" as={Col} className='mb-3'>
 
-                <Form.Label>{data.name} First Name</Form.Label>
+                <Form.Label>First Name</Form.Label>
 
-                <Form.Control type="text" placeholder='Entaer name' required name="name" defaultValue={data.name ? data.name : formik.values.name} />
+                <Form.Control type="text" placeholder='Entaer name'  name="name" onChange={formik.handleChange} onBlur={formik.handleBlur} defaultValue={formik.values.name} required />
 
                 {formik.touched.name && formik.errors.name ? (
 

@@ -49,16 +49,19 @@ const Cart=({ isSidebarOpen })=> {
 
      useEffect(()=>{
 
-        let userid=JSON.parse(localStorage.getItem('userdata'))
+         let userid=JSON.parse(localStorage.getItem('userdata'))
+
          console.log({userid})
 
-        axios.post('http://localhost:3000/api/Cart/cartget', {userid})
-        .then(res=>{
+         axios.post('http://localhost:3000/api/Cart/cartget', {userid})
+      
+         .then(res=>{
+
             console.log(res.data.result)
             setcart(res.data.result.cart)
         })
 
-     },[cart])
+     },[])
 
 
 
@@ -105,6 +108,7 @@ const Cart=({ isSidebarOpen })=> {
                                             <h6>{data.price}</h6>
                                      
                                             <div className='d-flex m-2'>
+                                             
                                                 <Button onClick={()=>{handlecartremove(data)}}>-</Button>
 
                                                 <p className='p-2'>{data.count}</p>

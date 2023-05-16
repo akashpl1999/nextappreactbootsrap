@@ -23,14 +23,18 @@ const handler = nextConnect({
        const results = await Cartmodule.findOne({userid:req.body.userid})
 
         if(results){
+            
            res.status(200).send({ msg: 'done', result: results })
            
         }else{
+
              res.status(400).send({msg:'err results not found'})
+
+
         }
 
    }catch(err){
-    
+
        console.log(err)
        res.status(400).send({msg:'err'})
    }

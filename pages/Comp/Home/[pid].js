@@ -41,6 +41,24 @@ function Item() {
         setPreviewImageUrl(data)
     }
 
+
+    
+    const handlecart = (data) => {
+
+        console.log(data)
+        // dispatch(addtocart(data))
+        const userid = JSON.parse(localStorage.getItem('userdata'))
+        const cdata = { userid, cartitem: data }
+        axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
+            .then(res => {
+                console.log(res.data)
+            })
+
+
+    }
+
+
+
     return (
 
 
@@ -306,7 +324,7 @@ function Item() {
 
                             <Col sm={6}>
 
-                                <Button variant="outline-danger" >
+                                <Button onClick={()=>{handlecart(Data)}} variant="outline-danger" >
                                     Add
                                 </Button>
 

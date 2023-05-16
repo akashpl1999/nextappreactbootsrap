@@ -396,3 +396,129 @@ export default function handler(req, res) {
       
    
      
+
+
+        //  const filteritem = cartdata.find((dt)=>dt._id===data._id && dt.count > 1)
+
+
+        //  if(filteritem){
+
+        //     const update=cartdata.map(dt=>dt._id===data._id   ? {...dt, count:  dt.count-1 }: dt )
+        //     setcartdata(update)
+        //     localStorage.setItem('cart', JSON.stringify(update))   
+        //     const userid = JSON.parse(localStorage.getItem('userdata'))
+        //     const cdata = { userid, cart: cartdata }
+        //     axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
+        //         .then(res => {
+        //             console.log(res.data)
+        //         })
+
+
+
+        //  }else{
+
+        //      const update= cartdata.filter((dt)=>dt._id !==data._id)
+        //      setcartdata(update)
+        //      localStorage.setItem('cart', JSON.stringify(update))  
+        //      const userid = JSON.parse(localStorage.getItem('userdata'))
+        //      const cdata = { userid, cart: cartdata }
+        //      axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
+        //          .then(res => {
+        //              console.log(res.data)
+        //          })
+
+
+
+        //  }
+
+
+     // const totalCartCount = await Cartmodule.aggregate([
+                    
+                    //     {
+                    //         $group: {
+                    //             _id: null,
+                    //             totalCount: { $sum:{$map:{input:'$cart',as:'item', in:'$$item.count',}} },
+                    //             totalPrice: { $sum: { $multiply: ["$cart.count", "$cart.price"] } }
+                    //         }
+                    //     }
+                    
+                    
+                    
+
+                    // ]);
+
+
+                    .post(async (req, res) => {
+
+    console.log(req.body)
+    const { userid, cartitem } = req.body
+
+    try {
+
+        if (req.body.userid) {
+
+            const cartdata = await Cartmodule.findOne({ userid: userid })
+
+            if (cartdata) {
+
+                const itemsdata = cartdata.cart.find((dt) => dt._id.toString() === cartitem._id)
+
+                if (itemsdata) {
+                    itemsdata.count += 1;
+                } else {
+                    cartitem.count = 1;
+                    cartdata.cart.push(cartitem)
+                }
+
+                const updatedCartData = await cartdata.save();
+
+                // Calculate total count and price
+                const { totalCount, totalPrice } = await Cartmodule.aggregate([
+                    { $match: { userid: mongoose.Types.ObjectId(userid) } },
+                    { $unwind: "$cart" },
+                    {
+                        $group: {
+                            _id: null,
+                            totalCount: { $sum: "$cart.count" },
+                            totalPrice: { $sum: { $multiply: ["$cart.count", "$cart.price"] } }
+                        }
+                    }
+                ]).exec().then(result => {
+                    const { totalCount, totalPrice } = result[0];
+                    return { totalCount, totalPrice };
+                });
+
+                res.status(200).send({ msg: 'done', result: updatedCartData, totalCount, totalPrice })
+
+            } else {
+                cartitem.count = 1
+                const results = new Cartmodule({ userid, cart: [cartitem] })
+                const data = await results.save()
+
+                // Calculate total count and price
+                const { totalCount, totalPrice } = await Cartmodule.aggregate([
+                    { $match: { userid: mongoose.Types.ObjectId(userid) } },
+                    { $unwind: "$cart" },
+                    {
+                        $group: {
+                            _id: null,
+                            totalCount: { $sum: "$cart.count" },
+                            totalPrice: { $sum: { $multiply: ["$cart.count", "$cart.price"] } }
+                        }
+                    }
+                ]).exec().then(result => {
+                    const { totalCount, totalPrice } = result[0];
+                    return { totalCount, totalPrice };
+                });
+
+                res.status(201).send({ msd: 'done POST', result: data, totalCount, totalPrice })
+            }
+        }
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).send({ msg: 'internal server error' })
+    }
+})
+
+

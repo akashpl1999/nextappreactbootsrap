@@ -25,6 +25,7 @@ const Navbar1 = () => {
   const [showProductList, setShowProductList] = useState(false);
 
 
+  const [cart,setcart] =useState()
 
 
 
@@ -66,12 +67,12 @@ const Navbar1 = () => {
   const handlelogout = () => {
     alert('loginout ')
     dispatch(loginstaus())
-
     localStorage.removeItem('userdata')
     localStorage.removeItem('login')
     localStorage.removeItem('token')
     localStorage.removeItem('profile')
     router.push('/Comp/Login')
+    window.location.reload()
 
 
   }
@@ -118,6 +119,27 @@ const Navbar1 = () => {
 
   console.log(pdata)
 
+  useEffect(() => {
+
+    let userid = JSON.parse(localStorage.getItem('userdata'))
+
+    console.log({ userid })
+
+    axios.post('http://localhost:3000/api/Cart/cartget', { userid })
+
+        .then(res => {
+
+            console.log(res.data.result)
+            setcart(res.data.result)
+        })
+
+}, [cart])
+
+
+
+
+
+
 
 
 
@@ -153,19 +175,12 @@ const Navbar1 = () => {
 
 
             <Nav className='me-auto'>
-
-              <Nav.Link >
-
+                <Nav.Link >
                 <Button onClick={handleopen} style={{ backgroundColor: 'inherit' }}>
-
                   Select the location
-
                 </Button>
 
-
-
                 <Modal show={show} onHide={handleclose} backdrop="static" keyboard={false}>
-
 
                   <Modal.Header >
 
@@ -176,7 +191,7 @@ const Navbar1 = () => {
 
                   <Modal.Body className='d-flex '>
 
-                    <Button className='m-2' >
+                    <Button className='m-2'  >
 
                       Select the location
 
@@ -215,7 +230,6 @@ const Navbar1 = () => {
                     placeholder="Search"
                     onFocus={handleSearchBarFocus}
                     onBlur={handleSearchBarBlur}
-            
                     className={styles.searchbar}
                     value={query}
                     onChange={handleQueryChange}
@@ -296,18 +310,23 @@ const Navbar1 = () => {
             
                     <Badge>
 
-                      {items}
-
+                     
+                     {cart?.totalCount}
                     </Badge>
 
-                    <Button onClick={toggleSidebar} className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }}>
+                    <Button onClick={()=>{router.push('/Comp/Order')}} className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }}>
                       Cart
                     </Button>
 
 
 
                     <Button className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }} onClick={handlelogout}>
-                      logout
+                     
+                        
+                        
+                          logout
+                 
+                 
                     </Button>
 
 
@@ -329,6 +348,7 @@ const Navbar1 = () => {
 
 
       {
+
         showProductList && searchResults?.map((data) => {
           
           const pid = data.item._id
@@ -346,11 +366,9 @@ const Navbar1 = () => {
 
                     <span>{data.item?.name}</span>
 
-
-
-
-
                 </div>
+
+
                 </Link>
 
 

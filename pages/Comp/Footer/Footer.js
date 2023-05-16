@@ -18,7 +18,7 @@ export default function Footer() {
     return (
 
 
-        <footer className="bg-dark text-white py-2  w-100" style={{   zIndex:1,    marginTop:"60%"     }}>
+        <footer className="bg-dark text-white py-2  w-100" style={{   zIndex:1,    marginTop:"40%"     }}>
 
         <Container className='text-start' >
      
