@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Badge, Button, Container, Form, FormControl, Modal, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 import Link from 'next/link'
+
 import { useRouter } from 'next/router'
 import styles from './Navbar.module.css'
 import Cart from '../Cart'
@@ -15,6 +16,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import axios from 'axios'
 
+//import { signIn, signOut } from 'next-auth/client'
+
 
 const Navbar1 = () => {
 
@@ -25,7 +28,7 @@ const Navbar1 = () => {
   const [showProductList, setShowProductList] = useState(false);
 
 
-  const [cart,setcart] =useState()
+  const [cart, setcart] = useState()
 
 
 
@@ -127,13 +130,13 @@ const Navbar1 = () => {
 
     axios.post('http://localhost:3000/api/Cart/cartget', { userid })
 
-        .then(res => {
+      .then(res => {
 
-            console.log(res.data.result)
-            setcart(res.data.result)
-        })
+        console.log(res.data.result)
+        setcart(res.data.result)
+      })
 
-}, [cart])
+  }, [cart])
 
 
 
@@ -175,10 +178,12 @@ const Navbar1 = () => {
 
 
             <Nav className='me-auto'>
-                <Nav.Link >
+              <Nav.Link >
                 <Button onClick={handleopen} style={{ backgroundColor: 'inherit' }}>
                   Select the location
                 </Button>
+
+             
 
                 <Modal show={show} onHide={handleclose} backdrop="static" keyboard={false}>
 
@@ -256,6 +261,10 @@ const Navbar1 = () => {
                     !islogin ? (
                       <>
                         <NavDropdown.Item>
+                          <Button onClick={e => {
+                            e.preventDefault();
+                            signIn()
+                          }}>Sign in</Button>
 
                           <Button onClick={() => { router.push('/Comp/Register') }}>
 
@@ -274,7 +283,7 @@ const Navbar1 = () => {
 
                         </NavDropdown.Item>
 
-
+                        
 
                       </>
                     ) : (
@@ -286,6 +295,7 @@ const Navbar1 = () => {
                             Profile
 
                           </Button>
+
                         </NavDropdown.Item>
 
 
@@ -306,28 +316,27 @@ const Navbar1 = () => {
 
 
 
-          
-            
-                    <Badge>
-
-                     
-                     {cart?.totalCount}
-                    </Badge>
-
-                    <Button onClick={()=>{router.push('/Comp/Order')}} className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }}>
-                      Cart
-                    </Button>
 
 
+              <Badge>
 
-                    <Button className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }} onClick={handlelogout}>
-                     
-                        
-                        
-                          logout
-                 
-                 
-                    </Button>
+
+                {cart?.totalCount}
+
+              </Badge>
+
+              <Button onClick={() => { router.push('/Comp/Order') }} className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }}>
+                Cart
+              </Button>
+
+              <Button className='ml-2' style={{ backgroundColor: "orangered", text: 'white' }} onClick={handlelogout}>
+
+
+
+                logout
+
+
+              </Button>
 
 
 
@@ -350,7 +359,7 @@ const Navbar1 = () => {
       {
 
         showProductList && searchResults?.map((data) => {
-          
+
           const pid = data.item._id
 
 
@@ -358,15 +367,15 @@ const Navbar1 = () => {
             <>
               <div className='shadow-lg position-absolute' style={{ width: '400px', maxHeight: "500px", overflowY: 'auto', zIndex: 1, top: "100px", left: "300px", backgroundColor: "white" }}>
 
-              <Link href={`../Header/${pid}`}>
+                <Link href={`../Header/${pid}`}>
 
-                <div className='d-flex justify-content-start m-3 ' >
-              
+                  <div className='d-flex justify-content-start m-3 ' >
+
                     <img src={data.item?.image} style={{ height: "100px" }} />
 
                     <span>{data.item?.name}</span>
 
-                </div>
+                  </div>
 
 
                 </Link>

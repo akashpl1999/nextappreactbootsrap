@@ -6,8 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export":"next build && next export",
+ 
     "lint": "next lint"
-  },
+
+    
+     },
   "dependencies": {
     "@emotion/styled": "^11.10.6",
     "@material-ui/core": "^4.12.4",

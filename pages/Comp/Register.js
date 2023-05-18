@@ -13,7 +13,7 @@ import axios from 'axios';
 export default function Register() {
 
 
-      const router =useRouter()
+    const router = useRouter()
 
     const signupschema = Yup.object().shape({
 
@@ -41,16 +41,16 @@ export default function Register() {
         onSubmit: values => {
             console.log(values)
 
-              axios.post('http://localhost:3000/api/Register', values)
-            
-              .then(response => {
+            axios.post('http://localhost:3000/api/Register', values)
 
-                console.log(response.data)
-                alert(response.data.msg)
-                router.push('/Comp/Login')
-                
-                
-              })
+                .then(response => {
+
+                    console.log(response.data)
+                    alert(response.data.msg)
+                    router.push('/Comp/Login')
+
+
+                })
         },
 
 
@@ -132,7 +132,7 @@ export default function Register() {
                             type="radio"
                             onChange={formik.handleChange} onBlur={formik.handleBlur}
                             value='female'
-                         //   defaultChecked={formik.values.gender === "female"}
+                        //   defaultChecked={formik.values.gender === "female"}
 
 
                         />
@@ -145,7 +145,7 @@ export default function Register() {
                             type="radio"
                             onChange={formik.handleChange} onBlur={formik.handleBlur}
                             value="male"
-                         //   defaultChecked={formik.values.gender === "male"}
+                        //   defaultChecked={formik.values.gender === "male"}
 
                         />
 
@@ -175,7 +175,12 @@ export default function Register() {
 
                             </Col>
 
+                           
+
+
+                        
                         </Row>
+
 
 
                     </Container>
