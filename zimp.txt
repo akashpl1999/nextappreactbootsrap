@@ -1,0 +1,524 @@
+if (req.method === 'PUT') {
+
+  const { id, ...updateData } = req.body;
+  const { db } = await connectToDatabase();
+  const filter = { _id: ObjectId(id) };
+  const update = { $set: { ...updateData } };
+  const options = { returnOriginal: false };
+  const result = await db.collection('users').findOneAndUpdate(filter, update, options);
+  res.status(200).json(result.value);
+
+} else {
+
+  res.status(405).end(); // Method Not Allowed
+}
+
+
+if (req.method === 'GET') {
+  const { id } = req.query;
+  const { db } = await connectToDatabase();
+  const filter = { _id: ObjectId(id) };
+  const user = await db.collection('users').findOne(filter);
+  res.status(200).json(user);
+
+} else {
+
+  res.status(405).end();}
+
+  
+
+  // DELETE request with data in the request body
+const response = await fetch('/api/users', {
+  method: 'DELETE',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ _id: '6443ba45932ea9329d5ecaaf' })
+});
+
+// PUT request with data in the request body
+const response = await fetch('/api/users', {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ _id: '6443ba45932ea9329d5ecaaf', name: 'John Doe', email: 'johndoe@example.com' })
+});
+
+// DELETE request with data in the request body
+const response = await axios.delete('/api/users', { data: { _id: '6443ba45932ea9329d5ecaaf' } });
+
+// PUT request with data in the request body
+const response = await axios.put('/api/users', { _id: '6443ba45932ea9329d5ecaaf', name: 'John Doe', email: 'johndoe@example.com' });
+
+
+import connect from '../../middleware/Connect';
+import RegisterModel from '../../Models/Register';
+
+const handler = async (req, res) => {
+  // Connect to database
+  await connect();
+
+  // Handle HTTP requests
+
+  if (req.method === 'POST') {
+    // Handle POST request
+  } else if (req.method === 'GET') {
+    // Handle GET request
+  } else if (req.method === 'PUT') {
+    // Handle PUT request
+  } else if (req.method === 'DELETE') {
+    // Handle DELETE request
+  }
+};
+
+export default handler;
+
+
+const mongoose = require('mongoose');
+
+const uri = "mongodb+srv://<dbuser>:<dbpassword>@cluster0.mongodb.net/test?retryWrites=true&w=majority";
+
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+};
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(uri, options);
+    console.log('Connected to MongoDB Atlas');
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+module.exports = connectDB;
+
+
+
+
+  
+  // const [selectedCountry, setSelectedCountry] = useState('');
+
+  // const [selectedState, setSelectedState] = useState('');
+
+  // useEffect(() => {
+  //   const countryStatePicker = new CountryStatePicker();
+  //   countryStatePicker.appendTo('#country', '#state');
+
+  //   return () => {
+  //     countryStatePicker.destroy();
+  //   }
+  // }, []);
+
+
+
+import nc from 'next-connect';
+import connect from '../../middleware/Connect';
+import RegisterModel from '../../Models/Register';
+import multer from 'multer';
+
+const upload = multer({ dest: 'uploads/' });
+
+const handler = nc()
+  .get(async (req, res) => {
+    try {
+      const result = await RegisterModel.find();
+      res.status(200).send(result);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ msg: 'Internal Server Error' });
+    }
+  })
+  .post(upload.single('img'), async (req, res) => {
+    try {
+      const { email, fname, lname, phone, add1, add2, pincode, country, state } = req.body;
+      const img = req.file.path;
+      const newRecord = new RegisterModel({
+        email,
+        fname,
+        lname,
+        phone,
+        add1,
+        add2,
+        pincode,
+        country,
+        state,
+        img,
+      });
+      const result = await newRecord.save();
+      res.status(201).send(result);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ msg: 'Internal Server Error' });
+    }
+  })
+  .put(upload.single('img'), async (req, res) => {
+    try {
+      const { email, fname, lname, phone, add1, add2, pincode, country, state } = req.body;
+      const filter = { email: email };
+      const img = req.file ? req.file.path : undefined;
+      const update = { fname, lname, phone, add1, add2, pincode, country, state };
+      if (img) {
+        update.img = img;
+      }
+      const options = { returnOriginal: false, upsert: false };
+      const result = await RegisterModel.findOneAndUpdate(filter, update, options);
+      if (result) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send({ msg: 'Record not found' });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ msg: 'Internal Server Error' });
+    }
+  })
+  .delete(async (req, res) => {
+    try {
+      const { email } = req.body;
+      const filter = { email: email };
+      const result = await RegisterModel.deleteOne(filter);
+      if (result.deletedCount > 0) {
+        res.status(200).send({ msg: 'Record deleted successfully' });
+      } else {
+        res.status(404).send({ msg: 'Record not found' });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ msg: 'Internal Server Error' });
+    }
+  });
+
+export default connect(handler);
+import connect from '../../../middleware/Connect'
+import RegisterModel from '../../../Models/Register';
+import nc from 'next-connect';
+
+const handler = nc({
+    onError: (err, req, res, next) => {
+        console.error(err.stack);
+        res.status(500).end("Something broke!");
+    },
+    onNoMatch: (req, res) => {
+        res.status(404).end("Page is not found");
+    },
+})
+   
+.get(async (req, res) => {
+    const { loginid } = req.query;
+    console.log(loginid)
+
+    try {
+        const result = await RegisterModel.findOne({ email: loginid });
+        res.status(200).send({ result, msg: 'done', err: 0 });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ msg: 'Internal Server Error' });
+    }
+})
+
+export default connect(handler)
+
+
+
+
+
+
+
+
+
+
+
+
+
+import otpGenerator from 'otp-generator';
+import nodemailer from 'nodemailer';
+
+const sendOTP = async (email) => {
+  const OTP = otpGenerator.generate(6, { upperCase: false, specialChars: false });
+  // Save OTP to the database against the email address
+
+  // Send email to the user with the OTP
+  const transporter = nodemailer.createTransport({
+    // Set up your email provider's SMTP settings here
+  });
+
+  await transporter.sendMail({
+    from: 'your-email@example.com',
+    to: email,
+    subject: 'Your OTP for our app',
+    text: `Your OTP is ${OTP}.`,
+  });
+
+  console.log(`OTP sent to ${email}`);
+};
+
+export default async function handler(req, res) {
+  const { email } = req.body;
+
+  // Check if email exists in the database
+  const existsInDB = await checkEmailInDB(email);
+
+  if (!existsInDB) {
+    res.status(400).json({ message: 'Email not found in database' });
+    return;
+  }
+
+  // Send OTP to the user's email
+  await sendOTP(email);
+
+  res.status(200).json({ message: 'OTP sent successfully' });
+}
+
+
+
+[
+    {
+        "id": 1,
+        "name": "Nandini Toned Fresh Milk",
+        "price": 10.00,
+        "category": "Dairy",
+        "description": "Fresh milk with Nandini toned",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/37083a.jpg?ts=1651131853",
+        "quantity": "500ml"
+    },
+    {
+        "id": 2,
+        "name": "Parle-G Biscuits",
+        "price": 5.00,
+        "category": "Snacks",
+        "description": "Classic Indian biscuit loved by all",
+        "image": "https://blinkit.com/prn/parle-g-original-gluco-biscuit/prid/60749",
+        "quantity": "100g"
+    },
+    {
+        "id": 3,
+        "name": "Kellogg's Corn Flakes",
+        "price": 25.00,
+        "category": "Cereal",
+        "description": "Crispy and delicious corn flakes",
+        "image": "https://blinkit.com/prn/kelloggs-muesli-with-21-fruit-nut-seeds/prid/373665",
+        "quantity": "250g"
+    },
+    {
+        "id": 4,
+        "name": "Fortune Sunflower Oil",
+        "price": 100.00,
+        "category": "Cooking Oil",
+        "description": "Healthy and light sunflower oil",
+        "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,metadata=none,w=180/app/images/products/sliding_image/43a.jpg?ts=1657622132",
+        "quantity": "1L"
+    },
+    {
+        "id": 5,
+        "name": "Tata Salt",
+        "price": 20.00,
+        "category": "Seasoning",
+        "description": "Pure and iodized salt",
+        "image": "https://blinkit.com/prn/tata-salt-vacuum-evaporated-iodised-salt-uppu/prid/105",
+        "quantity": "1kg"
+    },
+    {
+        "id": 6,
+        "name": "Amul Butter",
+        "price": 45.00,
+        "category": "Dairy",
+        "description": "Rich and creamy butter",
+        "image": "https://blinkit.com/prn/amul-salted-butter/prid/160",
+        "quantity": "500g"
+    },
+    {
+        "id": 7,
+        "name": "Maggi Masala Noodles",
+        "price": 12.00,
+        "category": "Instant Noodles",
+        "description": "Popular and tasty instant noodles",
+        "image": "https://blinkit.com/prn/maggi-masala-2-minute-instant-noodles/prid/169812",
+        "quantity": "70g"
+    },
+    
+    {
+        "id": 8,
+        "name": "Bru Instant Coffee",
+        "price": 60.00,
+        "category": "Coffee",
+        "description": "Rich and aromatic instant coffee",
+        "image": "https://blinkit.com/prn/bru-instant-coffee/prid/233",
+        "quantity": "1kg"
+    }
+]
+
+
+export default function handler(req, res) {
+  if (req.method === 'GET') {
+    if (req.query.type === 'products') {
+      console.log('GET request handler for /api/products');
+      const products = [
+        { id: 1, name: 'Product 1', price: 10.0 },
+        { id: 2, name: 'Product 2', price: 20.0 },
+        { id: 3, name: 'Product 3', price: 30.0 },
+      ];
+      res.status(200).json(products);
+    } else if (req.query.type === 'customers') {
+      console.log('GET request handler for /api/customers');
+      const customers = [
+        { id: 1, name: 'Customer 1', email: 'customer1@example.com' },
+        { id: 2, name: 'Customer 2', email: 'customer2@example.com' },
+        { id: 3, name: 'Customer 3', email: 'customer3@example.com' },
+      ];
+      res.status(200).json(customers);
+    } else {
+      res.status(400).json({ error: 'Invalid request' });
+    }
+  }
+}
+
+
+
+
+   // const filteritem = cartdata?.find((dt) => dt._id === data._id)
+        // console.log(filteritem)
+
+        // if (filteritem) {
+
+        //      const updatedata= cartdata.map(dt => dt._id === data._id ? { ...dt, count: dt.count + 1 } : dt)
+            
+        //        console.log(updatedata)
+        //        setcartdata(updatedata)
+        //       const userid = JSON.parse(localStorage.getItem('userdata'))
+        //       const cdata = { userid, cart: cartdata }
+        //       axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
+        //           .then(res => {
+        //               console.log(res.data)
+        //           })
+      
+   
+     
+
+
+        //  const filteritem = cartdata.find((dt)=>dt._id===data._id && dt.count > 1)
+
+
+        //  if(filteritem){
+
+        //     const update=cartdata.map(dt=>dt._id===data._id   ? {...dt, count:  dt.count-1 }: dt )
+        //     setcartdata(update)
+        //     localStorage.setItem('cart', JSON.stringify(update))   
+        //     const userid = JSON.parse(localStorage.getItem('userdata'))
+        //     const cdata = { userid, cart: cartdata }
+        //     axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
+        //         .then(res => {
+        //             console.log(res.data)
+        //         })
+
+
+
+        //  }else{
+
+        //      const update= cartdata.filter((dt)=>dt._id !==data._id)
+        //      setcartdata(update)
+        //      localStorage.setItem('cart', JSON.stringify(update))  
+        //      const userid = JSON.parse(localStorage.getItem('userdata'))
+        //      const cdata = { userid, cart: cartdata }
+        //      axios.post('http://localhost:3000/api/Cart/cartapi', cdata)
+        //          .then(res => {
+        //              console.log(res.data)
+        //          })
+
+
+
+        //  }
+
+
+     // const totalCartCount = await Cartmodule.aggregate([
+                    
+                    //     {
+                    //         $group: {
+                    //             _id: null,
+                    //             totalCount: { $sum:{$map:{input:'$cart',as:'item', in:'$$item.count',}} },
+                    //             totalPrice: { $sum: { $multiply: ["$cart.count", "$cart.price"] } }
+                    //         }
+                    //     }
+                    
+                    
+                    
+
+                    // ]);
+
+
+                    .post(async (req, res) => {
+
+    console.log(req.body)
+    const { userid, cartitem } = req.body
+
+    try {
+
+        if (req.body.userid) {
+
+            const cartdata = await Cartmodule.findOne({ userid: userid })
+
+            if (cartdata) {
+
+                const itemsdata = cartdata.cart.find((dt) => dt._id.toString() === cartitem._id)
+
+                if (itemsdata) {
+                    itemsdata.count += 1;
+                } else {
+                    cartitem.count = 1;
+                    cartdata.cart.push(cartitem)
+                }
+
+                const updatedCartData = await cartdata.save();
+
+                // Calculate total count and price
+                const { totalCount, totalPrice } = await Cartmodule.aggregate([
+                    { $match: { userid: mongoose.Types.ObjectId(userid) } },
+                    { $unwind: "$cart" },
+                    {
+                        $group: {
+                            _id: null,
+                            totalCount: { $sum: "$cart.count" },
+                            totalPrice: { $sum: { $multiply: ["$cart.count", "$cart.price"] } }
+                        }
+                    }
+                ]).exec().then(result => {
+                    const { totalCount, totalPrice } = result[0];
+                    return { totalCount, totalPrice };
+                });
+
+                res.status(200).send({ msg: 'done', result: updatedCartData, totalCount, totalPrice })
+
+            } else {
+                cartitem.count = 1
+                const results = new Cartmodule({ userid, cart: [cartitem] })
+                const data = await results.save()
+
+                // Calculate total count and price
+                const { totalCount, totalPrice } = await Cartmodule.aggregate([
+                    { $match: { userid: mongoose.Types.ObjectId(userid) } },
+                    { $unwind: "$cart" },
+                    {
+                        $group: {
+                            _id: null,
+                            totalCount: { $sum: "$cart.count" },
+                            totalPrice: { $sum: { $multiply: ["$cart.count", "$cart.price"] } }
+                        }
+                    }
+                ]).exec().then(result => {
+                    const { totalCount, totalPrice } = result[0];
+                    return { totalCount, totalPrice };
+                });
+
+                res.status(201).send({ msd: 'done POST', result: data, totalCount, totalPrice })
+            }
+        }
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).send({ msg: 'internal server error' })
+    }
+})
+
+
